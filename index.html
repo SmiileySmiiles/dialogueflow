@@ -1,9 +1,164 @@
-<iframe width="700" height="800" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/0ae160c1-beb7-4dce-9b99-e0efc79483f8"></iframe>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Engineering Materials Assignment Chatbot</title>
+  <meta name="description" content="A helpful chatbot for students to ask basic questions about their Engineering Materials assignment. The bot appears at the bottom-right of this page." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: #101827;
+      --muted: #9aa7b2;
+      --accent: #2563eb;
+      --ring: rgba(37, 99, 235, 0.4);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: #e5eef7;
+      background: radial-gradient(1200px 600px at 80% -10%, #23324a 0%, var(--bg) 55%),
+                  radial-gradient(1000px 500px at -10% 110%, #1b2851 0%, var(--bg) 55%),
+                  var(--bg);
+    }
+    .container { width: min(1100px, 92vw); margin: 0 auto; }
+    header {
+      padding: 28px 0 8px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand { font-weight: 800; letter-spacing: .4px; font-size: 1.05rem; }
+    .pill { border: 1px solid #2b3a56; padding: 6px 10px; border-radius: 999px; color: var(--muted); }
 
-<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items: center; padding: 36px 0 18px; }
+    .h1 { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.05; margin: 0 0 14px; }
+    .lede { color: #c2cfdb; font-size: 1.05rem; margin: 0 0 20px; }
+    .cta { display: inline-flex; gap: 10px; align-items: center; padding: 12px 16px; border-radius: 14px; background: var(--accent); color: #fff; text-decoration: none; font-weight: 600; box-shadow: 0 10px 22px var(--ring); }
+    .subtle { display: block; margin-top: 8px; color: var(--muted); font-size: .9rem; }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 16px; padding: 18px 18px 16px;
+      box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 20px 65px rgba(0,0,0,.25);
+    }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid .card h3 { margin: 0 0 6px; font-size: 1.02rem; }
+    .grid .card p { margin: 0; color: #c7d3de; font-size: .98rem; }
+    .examples { margin: 26px 0 0; }
+
+    code.prompt {
+      display: block; margin: 10px 0; padding: 10px 12px; border-radius: 12px;
+      background: #0f1830; color: #dbe7ff; border: 1px solid #243453; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .95rem;
+    }
+
+    .section { margin: 36px 0; }
+    .section h2 { margin: 0 0 14px; font-size: 1.35rem; }
+    ul.clean { padding-left: 1.2rem; margin: 0; color: #c7d3de; }
+    li + li { margin-top: 6px; }
+
+    footer { color: var(--muted); font-size: .9rem; padding: 22px 0 40px; text-align: center; }
+
+    /* Dialogflow Messenger theme overrides */
+    df-messenger {
+      --df-messenger-button-titlebar-color: var(--accent);
+      --df-messenger-chat-background-color: #ffffff;
+      --df-messenger-font-color: #0f172a;
+      --df-messenger-bot-message: #eef2ff;
+      --df-messenger-user-message: #e0f2fe;
+      --df-messenger-send-icon: var(--accent);
+      z-index: 9999; /* stay above sticky elements */
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div class="brand">Engineering Materials Assistant</div>
+    <div class="pill" aria-hidden="true">Student helper bot</div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1 class="h1">I built a chatbot to answer basic questions about your <em>Engineering Materials</em> assignment.</h1>
+        <p class="lede">It lives at the <strong>bottom‑right</strong> of this page. Click the chat bubble to ask about the assignment brief, what slides to prepare, grading, and more. It's fast, friendly, and available 24/7.</p>
+        <a class="cta" href="#get-started">How to use it →</a>
+        <span class="subtle">Psst… you can also just click the bubble in the corner and start typing.</span>
+      </div>
+      <div class="card" role="img" aria-label="Preview of the chatbot">
+        <h3 style="margin:0 0 6px;">What can I ask?</h3>
+        <p class="subtle" style="margin:0 0 10px;">Try these sample prompts:</p>
+        <code class="prompt">“What is the assignment about?”</code>
+        <code class="prompt">“What slides do I need to prepare?”</code>
+        <code class="prompt">“How will the grading work?”</code>
+        <code class="prompt">“Give an example of parts/components I can work on.”</code>
+        <code class="prompt">“What’s the expected length for the write‑up?”</code>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h3>Clear guidance</h3>
+        <p>The bot summarizes the assignment scope and milestones so you always know what to do next.</p>
+      </article>
+      <article class="card">
+        <h3>Checklist of slides</h3>
+        <p>Get a concise slide checklist covering title, problem framing, material selection reasoning, and references.</p>
+      </article>
+      <article class="card">
+        <h3>Examples to start fast</h3>
+        <p>Ask for example parts & components (e.g., bicycle pedal, seat, or frame) to kickstart your project idea.</p>
+      </article>
+    </section>
+
+    <section id="get-started" class="section">
+      <h2>How to use the chatbot</h2>
+      <ul class="clean">
+        <li>Click the blue chat bubble at the bottom‑right corner.</li>
+        <li>Type your question as you would to a tutor (see the examples above).</li>
+        <li>If you get stuck, ask follow‑ups like “show me a slide outline” or “what criteria are graded?”.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Scope & privacy</h2>
+      <ul class="clean">
+        <li>The bot is designed for <strong>basic questions</strong> about the Engineering Materials assignment. For official rulings, always follow your lecturer’s instructions.</li>
+        <li>No personal data is required to chat. Avoid sharing sensitive information.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    Built by your lecturer — making engineering learning a little easier.
+  </footer>
+
+  <!-- Dialogflow Messenger embed -->
+  <!--
+    Replace AGENT_ID below with your Dialogflow ES agent ID.
+    Make sure the page is served over HTTPS for best results.
+  -->
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 <df-messenger
   intent="WELCOME"
   chat-title="Assignment_FAQ_Bot"
   agent-id="0ae160c1-beb7-4dce-9b99-e0efc79483f8"
   language-code="en"
 ></df-messenger>
+
+  <noscript>
+    <div style="position: fixed; right: 16px; bottom: 16px; background:#fff; color:#000; padding:10px 12px; border-radius:12px;">
+      Enable JavaScript to use the chatbot.
+    </div>
+  </noscript>
+</body>
+</html>
+
